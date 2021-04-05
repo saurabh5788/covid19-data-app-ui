@@ -35,7 +35,6 @@ export default class StateComponent extends Component {
       <div>
         {state.statename}
         {state.population}
-        {state.population}
       </div>
     );
   }

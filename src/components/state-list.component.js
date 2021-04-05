@@ -7,7 +7,7 @@ export default class StateListComponent extends Component {
   constructor(props) {
     super(props);
     this.retrieveStates = this.retrieveStates.bind(this);
-    
+
     this.state = {
       statelist: []
     };
@@ -35,13 +35,33 @@ export default class StateListComponent extends Component {
 
     return (
       <div>
-      {statelist.map(data => (
-        <p>
-        <Link to={"/state/"+data.statecode} className="nav-link">
-        {data.statename}
-        </Link></p>
-      ))}
-    </div>
+        <table className="table table-bordered table-sm">
+          <thead>
+            <tr>
+              <th>State Name</th>
+              <th>Population</th>
+              <th>Case/Million</th>
+            </tr>
+          </thead>
+          <tbody>
+            {statelist.map(data => (
+              <tr>
+                <td>
+                  <Link to={"/state/" + data.statecode}>
+                    {data.statename}
+                  </Link>
+                </td>
+                <td>
+                  {data.population}
+                </td>
+                <td>
+                  847
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     );
   }
 }
