@@ -31,21 +31,25 @@ export default class StateListComponent extends Component {
   }
 
   render() {
-    const { statelist } = this.state;
+    const {statelist} = this.state;
+    var index = 1;
 
     return (
       <div>
         <table className="table table-bordered table-sm">
           <thead>
             <tr>
+              <th>S.No.</th>
               <th>State Name</th>
-              <th>Population</th>
-              <th>Case/Million</th>
+              <th>Population</th>              
             </tr>
           </thead>
           <tbody>
             {statelist.map(data => (
               <tr>
+                <td>
+                {index++}
+                </td>
                 <td>
                   <Link to={"/state/" + data.statecode}>
                     {data.statename}
@@ -53,10 +57,7 @@ export default class StateListComponent extends Component {
                 </td>
                 <td>
                   {data.population}
-                </td>
-                <td>
-                  847
-                </td>
+                </td>                
               </tr>
             ))}
           </tbody>
